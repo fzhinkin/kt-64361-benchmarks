@@ -1,34 +1,13 @@
 import kotlinx.benchmark.gradle.JvmBenchmarkTarget
 
 plugins {
-    kotlin("jvm") version "1.9.22"
-    id("org.jetbrains.kotlinx.benchmark") version "0.4.10"
+    kotlin("jvm") version "1.9.22" apply false
+    kotlin("android") version "1.9.22" apply false
+    id("org.jetbrains.kotlinx.benchmark") version "0.4.10" apply false
+    id("com.android.application") version "8.2.0" apply false
+    id("com.android.library") version "8.2.0" apply false
+    id("androidx.benchmark") version "1.1.1" apply false
 }
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.10")
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-kotlin {
-    jvmToolchain(21)
-}
-
-benchmark {
-    targets {
-        register("main") {
-            this as JvmBenchmarkTarget
-            jmhVersion = "1.37"
-        }
-    }
-}

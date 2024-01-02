@@ -2,6 +2,7 @@ pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
+        google()
     }
 }
 
@@ -10,3 +11,5 @@ plugins {
 }
 
 rootProject.name = "stdlib-signum"
+include("jvm-benchmarks")
+include("android-benchmarks")
