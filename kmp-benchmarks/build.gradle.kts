@@ -17,6 +17,7 @@ kotlin {
     linuxArm64()
     mingwX64()
     wasmJs { nodejs() }
+    js(IR) { nodejs() }
 
     sourceSets {
         commonMain {
@@ -43,6 +44,7 @@ benchmark {
         register("linuxArm64")
         register("mingwX64")
         register("wasmJs")
+        register("js")
     }
 }
 
