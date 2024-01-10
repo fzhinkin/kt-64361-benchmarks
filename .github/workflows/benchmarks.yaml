@@ -51,7 +51,7 @@ jobs:
           architecture: x64
 
       - name: Run benchmarks
-        run: ./gradlew linuxX64Benchmark
+        run: ./gradlew linuxX64Benchmark wasmJsBenchmark
 
       - name: Copy results
         run: |
