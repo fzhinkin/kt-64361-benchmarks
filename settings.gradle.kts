@@ -13,3 +13,4 @@ plugins {
 rootProject.name = "stdlib-signum"
 include("jvm-benchmarks")
 include("android-benchmarks")
+include("kmp-benchmarks")
