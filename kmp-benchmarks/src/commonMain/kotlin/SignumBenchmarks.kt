@@ -22,6 +22,17 @@ open class IntSignumBenchmark {
         val value = nextValue()
         return value shr 31 or (-value ushr 31)
     }
+
+    @Benchmark
+    fun kotlinSignumBh(blackhole: Blackhole) {
+        blackhole.consume(nextValue().sign)
+    }
+
+    @Benchmark
+    fun signBitExtractingSignumBh(blackhole: Blackhole) {
+        val value = nextValue()
+        blackhole.consume(value shr 31 or (-value ushr 31))
+    }
 }
 
 @State(Scope.Benchmark)
@@ -42,5 +53,16 @@ open class LongSignumBenchmark {
     fun signBitExtractingSignum(): Int {
         val value = nextValue()
         return (value shr 63 or (-value ushr 63)).toInt()
+    }
+
+    @Benchmark
+    fun kotlinSignumBh(blackhole: Blackhole) {
+        blackhole.consume(nextValue().sign)
+    }
+
+    @Benchmark
+    fun signBitExtractingSignum(blackhole: Blackhole) {
+        val value = nextValue()
+        blackhole.consume((value shr 63 or (-value ushr 63)).toInt())
     }
 }
