@@ -61,7 +61,7 @@ open class LongSignumBenchmark {
     }
 
     @Benchmark
-    fun signBitExtractingSignum(blackhole: Blackhole) {
+    fun signBitExtractingSignumBh(blackhole: Blackhole) {
         val value = nextValue()
         blackhole.consume((value shr 63 or (-value ushr 63)).toInt())
     }
