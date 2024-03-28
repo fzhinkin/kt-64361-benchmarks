@@ -5,6 +5,7 @@ import kotlin.math.sign
 
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
+@OutputTimeUnit(BenchmarkTimeUnit.NANOSECONDS)
 open class IntSignumBenchmark {
     private var x = 1
 
@@ -15,23 +16,15 @@ open class IntSignumBenchmark {
     }
 
     @Benchmark
-    fun kotlinSignum(): Int = nextValue().sign
-
-    @Benchmark
-    fun signBitExtractingSignum(): Int {
+    fun kotlinSignum(blackhole: Blackhole) {
         val value = nextValue()
-        return value shr 31 or (-value ushr 31)
+        blackhole.consume(value.sign)
     }
 
     @Benchmark
-    fun kotlinSignumBh(blackhole: Blackhole) {
-        blackhole.consume(nextValue().sign)
-    }
-
-    @Benchmark
-    fun signBitExtractingSignumBh(blackhole: Blackhole) {
+    fun signBitExtractingSignum(blackhole: Blackhole) {
         val value = nextValue()
-        blackhole.consume(value shr 31 or (-value ushr 31))
+        blackhole.consume(value.signumBM)
     }
 }
 
@@ -47,22 +40,23 @@ open class LongSignumBenchmark {
     }
 
     @Benchmark
-    fun kotlinSignum(): Int = nextValue().sign
-
-    @Benchmark
-    fun signBitExtractingSignum(): Int {
-        val value = nextValue()
-        return (value shr 63 or (-value ushr 63)).toInt()
-    }
-
-    @Benchmark
-    fun kotlinSignumBh(blackhole: Blackhole) {
+    fun kotlinSignum(blackhole: Blackhole) {
         blackhole.consume(nextValue().sign)
     }
 
     @Benchmark
-    fun signBitExtractingSignumBh(blackhole: Blackhole) {
+    fun signBitExtractingSignum(blackhole: Blackhole) {
         val value = nextValue()
-        blackhole.consume((value shr 63 or (-value ushr 63)).toInt())
+        blackhole.consume(value.signumBM)
     }
 }
+
+private const val INT_M_BITS = Int.SIZE_BITS - 1
+
+private val Int.signumBM: Int
+    get() = (this shr INT_M_BITS) or (-this ushr INT_M_BITS)
+
+private const val LONG_M_BITS = Long.SIZE_BITS - 1
+
+private val Long.signumBM: Int
+    get() = (this shr LONG_M_BITS or (-this ushr LONG_M_BITS)).toInt()

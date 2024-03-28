@@ -31,11 +31,40 @@ kotlin {
 benchmark {
     configurations {
         named("main") {
-            iterations = 50
+            iterations = 5
             iterationTime = 5
             iterationTimeUnit = "sec"
             outputTimeUnit = "ns"
         }
+        create("Int.baseline") {
+            include("IntSignumBenchmark.kotlinSignum")
+            iterations = 15
+            iterationTime = 5
+            iterationTimeUnit = "sec"
+            outputTimeUnit = "ns"
+        }
+        create("Int.bitmanip") {
+            include("IntSignumBenchmark.signBitExtractingSignum")
+            iterations = 15
+            iterationTime = 5
+            iterationTimeUnit = "sec"
+            outputTimeUnit = "ns"
+        }
+        create("Long.baseline") {
+            include("LongSignumBenchmark.kotlinSignum")
+            iterations = 15
+            iterationTime = 5
+            iterationTimeUnit = "sec"
+            outputTimeUnit = "ns"
+        }
+        create("Long.bitmanip") {
+            include("LongSignumBenchmark.signBitExtractingSignum")
+            iterations = 15
+            iterationTime = 5
+            iterationTimeUnit = "sec"
+            outputTimeUnit = "ns"
+        }
+
     }
     targets {
         register("macosArm64")
