@@ -1,0 +1,182 @@
+[
+  {
+    "benchmark" : "org.example.IntSignumBenchmark.kotlinSignum",
+    "mode" : "avgt",
+    "warmupIterations" : 5,
+    "warmupTime" : "5 sec",
+    "measurementIterations" : 5,
+    "measurementTime" : "5 sec",
+    "params" : {
+          
+    },
+    "advanced" : {
+          
+    },
+    "primaryMetric" : {
+       "score": 4.076859400092588,
+       "scoreError": 0.03469145445018899,
+       "scoreConfidence" : [
+          4.042167945642399,
+          4.111550854542777
+       ],
+       "scorePercentiles" : {
+          "0.00" : 4.033860023018423,
+          "25.00" : 4.042172283785133,
+          "50.00" : 4.062702223330476,
+          "75.00" : 4.118625104781099,
+          "90.00" : 4.122615698214818,
+          "99.00" : 4.122615698214818,
+          "99.90" : 4.122615698214818,
+          "99.99" : 4.122615698214818,
+          "100.00" : 4.122615698214818
+       },
+       "scoreUnit" : "ns/op",
+       "rawData" : [
+           [
+             4.122615698214818,
+             4.050484544551844,
+             4.062702223330476,
+             4.033860023018423,
+             4.11463451134738
+           ]
+       ]
+    },
+    "secondaryMetrics" : {
+    }
+  },
+  {
+    "benchmark" : "org.example.IntSignumBenchmark.signBitExtractingSignum",
+    "mode" : "avgt",
+    "warmupIterations" : 5,
+    "warmupTime" : "5 sec",
+    "measurementIterations" : 5,
+    "measurementTime" : "5 sec",
+    "params" : {
+          
+    },
+    "advanced" : {
+          
+    },
+    "primaryMetric" : {
+       "score": 4.12632157335639,
+       "scoreError": 0.03220948962414389,
+       "scoreConfidence" : [
+          4.094112083732246,
+          4.158531062980534
+       ],
+       "scorePercentiles" : {
+          "0.00" : 4.099296237249704,
+          "25.00" : 4.10228409788477,
+          "50.00" : 4.110628408419969,
+          "75.00" : 4.1582056312962195,
+          "90.00" : 4.189416402684673,
+          "99.00" : 4.189416402684673,
+          "99.90" : 4.189416402684673,
+          "99.99" : 4.189416402684673,
+          "100.00" : 4.189416402684673
+       },
+       "scoreUnit" : "ns/op",
+       "rawData" : [
+           [
+             4.126994859907766,
+             4.105271958519835,
+             4.110628408419969,
+             4.189416402684673,
+             4.099296237249704
+           ]
+       ]
+    },
+    "secondaryMetrics" : {
+    }
+  },
+  {
+    "benchmark" : "org.example.LongSignumBenchmark.kotlinSignum",
+    "mode" : "avgt",
+    "warmupIterations" : 5,
+    "warmupTime" : "5 sec",
+    "measurementIterations" : 5,
+    "measurementTime" : "5 sec",
+    "params" : {
+          
+    },
+    "advanced" : {
+          
+    },
+    "primaryMetric" : {
+       "score": 4.685288485375546,
+       "scoreError": 0.03662358585816512,
+       "scoreConfidence" : [
+          4.648664899517381,
+          4.721912071233711
+       ],
+       "scorePercentiles" : {
+          "0.00" : 4.64898385867423,
+          "25.00" : 4.653040091812223,
+          "50.00" : 4.658630309280147,
+          "75.00" : 4.730865966986569,
+          "90.00" : 4.732425549755249,
+          "99.00" : 4.732425549755249,
+          "99.90" : 4.732425549755249,
+          "99.99" : 4.732425549755249,
+          "100.00" : 4.732425549755249
+       },
+       "scoreUnit" : "ns/op",
+       "rawData" : [
+           [
+             4.657096324950214,
+             4.729306384217887,
+             4.64898385867423,
+             4.732425549755249,
+             4.658630309280147
+           ]
+       ]
+    },
+    "secondaryMetrics" : {
+    }
+  },
+  {
+    "benchmark" : "org.example.LongSignumBenchmark.signBitExtractingSignum",
+    "mode" : "avgt",
+    "warmupIterations" : 5,
+    "warmupTime" : "5 sec",
+    "measurementIterations" : 5,
+    "measurementTime" : "5 sec",
+    "params" : {
+          
+    },
+    "advanced" : {
+          
+    },
+    "primaryMetric" : {
+       "score": 4.35401440293931,
+       "scoreError": 0.02951466056364181,
+       "scoreConfidence" : [
+          4.324499742375668,
+          4.383529063502952
+       ],
+       "scorePercentiles" : {
+          "0.00" : 4.336153792996313,
+          "25.00" : 4.337218744369207,
+          "50.00" : 4.338563580218726,
+          "75.00" : 4.378535472869704,
+          "90.00" : 4.414084160735437,
+          "99.00" : 4.414084160735437,
+          "99.90" : 4.414084160735437,
+          "99.99" : 4.414084160735437,
+          "100.00" : 4.414084160735437
+       },
+       "scoreUnit" : "ns/op",
+       "rawData" : [
+           [
+             4.338563580218726,
+             4.338283695742101,
+             4.414084160735437,
+             4.336153792996313,
+             4.34298678500397
+           ]
+       ]
+    },
+    "secondaryMetrics" : {
+    }
+  }
+]
