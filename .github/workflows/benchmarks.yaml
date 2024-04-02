@@ -115,13 +115,18 @@ jobs:
           architecture: x64
 
       - name: Run benchmarks
-        run: ./gradlew wasmJsBenchmark
+        run: ./gradlew wasmJsInt.baselineBenchmark wasmJsLong.baselineBenchmark wasmJsInt.bitmanipBenchmark wasmJsLong.bitmanipBenchmark
 
       - name: Copy results
         run: |
-          REPORTS_DIR=kmp-benchmarks/build/reports/benchmarks/main/
-          DIR_NAME=$(ls $REPORTS_DIR | head -n1)
-          ls $REPORTS_DIR/$DIR_NAME/*.json | while read report_json; do arch_name=$(basename $report_json); cp $report_json results/$DIR_NAME-kn-$arch_name; done
+          REPORTS_DIR=kmp-benchmarks/build/reports/benchmarks/
+          ls $REPORTS_DIR | while read CONFIG_DIR; do
+            DIR_NAME=$(ls $REPORTS_DIR/$CONFIG_DIR | head -n1)
+            ls $REPORTS_DIR/$CONFIG_DIR/$DIR_NAME/*.json | while read report_json; do 
+              arch_name=$(basename $report_json); 
+              cp $report_json results/$DIR_NAME-$CONFIG_DIR-kn-$arch_name;
+            done
+          done
 
       - name: Publish results
         uses: peter-evans/create-pull-request@v5
